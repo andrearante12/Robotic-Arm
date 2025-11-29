@@ -12,20 +12,30 @@ void setup() {
   board1.setPWMFreq(60); // Servos operate at ~60 Hz
 }
 
+void reset() {
+  // Servo 0 (Base)
+  board1.setPWM(0, 0, angleToPulse(150));
+
+  // Servo 1 (Bottom Arm)
+  board1.setPWM(1, 0, angleToPulse(75));
+
+//// Servo 2 (Mid Arm)
+  board1.setPWM(2, 0, angleToPulse(180));
+
+//// Servo 3 (Wrist)
+  board1.setPWM(3, 0, angleToPulse(180));
+
+// Servo 4 (Hand Rotation)
+ board1.setPWM(4, 0, angleToPulse(0));
+
+// Servo 5 (Grip)
+ board1.setPWM(5, 0, angleToPulse(0));
+}
+
+
+
 void loop() {
-  // Set all servos to 0 degrees
-  for(int i=0; i<8; i++) {
-    board1.setPWM(i, 0, angleToPulse(0));
-  }
-  delay(1000);
-  
-  // Sweep all servos from 0 to 180 degrees
-  for(int angle = 0; angle < 181; angle += 10) {
-    for(int i=0; i<8; i++) {
-      board1.setPWM(i, 0, angleToPulse(angle));
-    }
-    delay(100);
-  }
+  reset();
 }
 
 int angleToPulse(int ang) {
