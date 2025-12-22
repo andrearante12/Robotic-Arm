@@ -10,7 +10,7 @@ https://github.com/andrearante12/Robotic-Arm/blob/main/docs/videos/physical_buil
 
 ## CAD Model with Solidworks
 
-![Demo](docs\img\side_profile.png)
+![Demo](docs/img/side_profile.png)
 
 ## Visualization with rviz2
 https://github.com/andrearante12/Robotic-Arm/blob/main/docs/videos/rviz2_demo.mp4
