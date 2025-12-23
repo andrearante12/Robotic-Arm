@@ -12,13 +12,10 @@ https://github.com/user-attachments/assets/ec7e50fa-2d13-46d9-afe8-c7680861c63d
 
 ![Demo](docs/img/side_profile.png)
 
-## Visualization with rviz2
-
-
-
+## Visualization and motion planning with rviz2
 
 https://github.com/user-attachments/assets/5d312841-a5a9-4a7e-a08d-b234987b8f20
-
+[Screencast from 2025-12-23 14-23-09.webm](https://github.com/user-attachments/assets/f96ab1f5-55c6-4020-97d4-8c81f729513d)
 
 
 ### Steps to run
