@@ -22,18 +22,14 @@ https://github.com/user-attachments/assets/f96ab1f5-55c6-4020-97d4-8c81f729513d
 
 ### Steps to run
 
-1. Create a ROS package
+1. Install the ros2 package from this github repo: https://github.com/andrearante12/ros2_ws
 ```
-cd ~/ros2_ws/src
-ros2 pkg create --build-type ament_cmake --license Apache-2.0 robotic_arm
-```
-
-2. Add the contents of the robotic_arm folder into the package directory `~/ros2_ws/src/robotic_arm`. Replace `./robotic_arm` to the location of this cloned repo.
-```
-cp -rf ./robotic_arm ~/ros2_ws/src/robotic_arm
+cd ~/
+git clone https://github.com/andrearante12/ros2_ws
 ```
 
-3. Build the package (Full Rebuild)
+
+2. Build the package (Full Rebuild)
 ```
 cd ~/ros2_ws
 rm -rf build install log
@@ -49,7 +45,12 @@ colcon build --packages-select robotic_arm
 source install/setup.bash
 ```
 
-4. Run the visualization with
+3. Run the visualization with servo controls
 ```
 ros2 launch robotic_arm robotic_arm.launch.py
+```
+
+4. Run the motion planner with MoveIt and rviz2
+```
+ros2 launch robotic_arm_v3_config demo.launch.py
 ```
