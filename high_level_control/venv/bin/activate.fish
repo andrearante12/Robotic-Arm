@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/andre/Documents/Robotic-Arm/raspberrypi_code/venv
+set -gx VIRTUAL_ENV /home/bot/ImitationArm/high_level_control/venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

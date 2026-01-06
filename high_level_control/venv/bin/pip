@@ -1,4 +1,4 @@
-#!/home/andre/Documents/Robotic-Arm/raspberrypi_code/venv/bin/python
+#!/home/bot/ImitationArm/high_level_control/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
