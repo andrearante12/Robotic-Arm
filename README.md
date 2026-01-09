@@ -3,6 +3,8 @@ This document presents Imitation Arm, a 6DOF robotic arm that learns skills by w
 
 
 ## System Overview
+A human can train the robot via a wearable device consisting of an ESP32 microcontroller and a MPU-6050 Acceleromter and Gyroscope sensor. 
+
 The robotic system is controlled by six MG996R pulse-width modulation (PWM) servomotors, which are driven by a PCA9685 16-channel, 12-bit PWM servo controller interfaced via the I2C protocol. Low-level actuator control is handled by an Arduino Nano microcontroller.
 
 High-level system control is implemented on a Raspberry Pi running the Robot Operating System (ROS), which is responsible for computationally intensive control tasks. The ROS2 workspace can be download here: https://github.com/andrearante12/ros2_ws. A custom inverse kinematic algorithm implemented via gradient descent and used to convert target coordinates (x, y, z) into the corresponding servo angles. MoveIt2 was then used to create a motion plan and verify that the path is valid via trajectory planning and collision detection. Control commands are transmitted from the Raspberry Pi to the Arduino Nano over a serial communication interface.
@@ -14,10 +16,24 @@ High-level system control is implemented on a Raspberry Pi running the Robot Ope
 
 ## Physical Build
 
-Demo Video
+Demo Video using breadboard based protoype of wearable controller.
+
+https://github.com/user-attachments/assets/144eaac5-5938-4217-9122-2242566a99c5
+
 
 
 https://github.com/user-attachments/assets/ec7e50fa-2d13-46d9-afe8-c7680861c63d
+
+## Visualization and motion planning with rviz2
+
+https://github.com/user-attachments/assets/5d312841-a5a9-4a7e-a08d-b234987b8f20
+
+
+Succesful motion planning demonstration
+
+https://github.com/user-attachments/assets/f96ab1f5-55c6-4020-97d4-8c81f729513d
+
+
 
 ## Components
 PCA9685 Servo Driver: https://www.amazon.com/dp/B0CNVBWX2M?ref=ppx_yo2ov_dt_b_fed_asin_title
@@ -38,12 +54,7 @@ Note: the above mentioned aluminum body doesn't come with an official CAD model,
 
 ![Demo](docs/img/side_profile.png)
 
-## Visualization and motion planning with rviz2
 
-https://github.com/user-attachments/assets/5d312841-a5a9-4a7e-a08d-b234987b8f20
-
-
-https://github.com/user-attachments/assets/f96ab1f5-55c6-4020-97d4-8c81f729513d
 
 
 ### Steps to run
@@ -75,6 +86,10 @@ source install/setup.bash
 ```
 ros2 launch robotic_arm robotic_arm.launch.py
 ```
+
+## Starting the IMU Controller Pipeline
+
+TODO: Run Instructions
 
 ## Starting the Inverse Kinematics Pipeline
 
