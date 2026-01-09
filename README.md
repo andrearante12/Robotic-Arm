@@ -3,7 +3,7 @@ This document presents Imitation Arm, a 6DOF robotic arm that learns skills by w
 
 
 ## System Overview
-A human can train the robot via a wearable device consisting of an ESP32 microcontroller and a MPU-6050 Acceleromter and Gyroscope sensor. 
+A human can train the robot via a wearable device consisting of an ESP32 microcontroller and a MPU-6050 Acceleromter and Gyroscope sensor. Data is streamed over WiFi to the central RaspberryPi using MQTT messaging protocol. The RaspberryPI is responsible for callibration and smoothing the sensor data using various signal processing techniques.
 
 The robotic system is controlled by six MG996R pulse-width modulation (PWM) servomotors, which are driven by a PCA9685 16-channel, 12-bit PWM servo controller interfaced via the I2C protocol. Low-level actuator control is handled by an Arduino Nano microcontroller.
 
