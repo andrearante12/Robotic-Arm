@@ -89,7 +89,20 @@ ros2 launch robotic_arm robotic_arm.launch.py
 
 ## Starting the IMU Controller Pipeline
 
-TODO: Run Instructions
+1. Run the motion planner with MoveIt and rviz2
+```
+ros2 launch robotic_arm_v3_config demo_with_controllers.launch.py
+```
+
+2. Run the IMU communication node
+```
+ros2 run mqtt_imu mqtt_imu_node
+```
+
+3. Run the IMU controller node
+```
+ros2 run esp32_controller esp32_controller
+```
 
 ## Starting the Inverse Kinematics Pipeline
 
