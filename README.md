@@ -100,8 +100,13 @@ ros2 run mqtt_imu mqtt_imu_node
 ```
 
 3. Run the IMU controller node
+
+This is the base command to run.
 ```
-ros2 run esp32_controller esp32_controller
+ros2 run esp32_controller esp32_controller --ros-args -p callback_skip_rate:=5 -p x_sensitivity:=2.0 -p y_sensitivity:=3.0 # base commad
+
+ros2 run esp32_controller esp32_controller --ros-args -p callback_skip_rate:=5 -p x_sensitivity:=2.0 -p y_sensitivity:=3.0 -p lock_y_axis:=true -p wrist_sensitivity:=1.5 #movement along x axis (side to side) with wrist movement
+
 ```
 
 ## Starting the Inverse Kinematics Pipeline
