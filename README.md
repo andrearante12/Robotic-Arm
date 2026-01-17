@@ -101,13 +101,61 @@ ros2 run mqtt_imu mqtt_imu_node
 
 3. Run the IMU controller node
 
-This is the base command to run.
+Run with the recommended callibration 
 ```
-ros2 run esp32_controller esp32_controller --ros-args -p callback_skip_rate:=5 -p x_sensitivity:=2.0 -p y_sensitivity:=3.0 # base commad
-
-ros2 run esp32_controller esp32_controller --ros-args -p callback_skip_rate:=5 -p x_sensitivity:=2.0 -p y_sensitivity:=3.0 -p lock_y_axis:=true -p wrist_sensitivity:=1.5 #movement along x axis (side to side) with wrist movement
+ros2 run esp32_controller esp32_controller --ros-args \
+  -p callback_skip_rate:=5 \
+  -p x_sensitivity:=3.0 \
+  -p lock_y_axis:=true \
+  -p default_y_position:=-1.2 \
+  -p lock_wrist:=true \
+  -p default_wrist_angle:=90 \
+  -p default_z_position:=1.10
 
 ```
+
+# ESP32 Controller - Quick Parameter Reference
+
+| Parameter | Type | Default | Range/Options | Description |
+|-----------|------|---------|---------------|-------------|
+| `callback_skip_rate` | int | 5 | 1-100 | Commands sent every N callbacks (higher = slower) |
+| `x_sensitivity` | double | 1.5 | 0.1-10.0 | X-axis responsiveness (higher = more sensitive) |
+| `y_sensitivity` | double | 2.0 | 0.1-10.0 | Y-axis responsiveness (higher = more sensitive) |
+| `lock_x_axis` | bool | false | true/false | Lock X at current position |
+| `lock_y_axis` | bool | false | true/false | Lock Y at default position |
+| `lock_wrist` | bool | false | true/false | Lock wrist at default angle |
+| `wrist_sensitivity` | double | 1.0 | 0.1-5.0 | Wrist rotation responsiveness |
+| `default_y_position` | double | -1.35 | -1.5 to -1.2 | Y position when locked (meters) |
+| `default_wrist_angle` | int | 90 | 0-180 | Wrist angle when locked (degrees) |
+| `default_z_position` | double | 1.11 | 0.5-2.0 | Fixed Z height (meters) |
+
+## Quick Examples
+```bash
+# Default (all features enabled)
+ros2 run esp32_controller esp32_controller
+
+# X-axis only (Y and wrist locked)
+ros2 run esp32_controller esp32_controller --ros-args \
+  -p lock_y_axis:=true \
+  -p lock_wrist:=true
+
+# High sensitivity, fast updates
+ros2 run esp32_controller esp32_controller --ros-args \
+  -p callback_skip_rate:=2 \
+  -p x_sensitivity:=3.0 \
+  -p y_sensitivity:=3.0
+
+# Safe/slow for testing
+ros2 run esp32_controller esp32_controller --ros-args \
+  -p callback_skip_rate:=10 \
+  -p x_sensitivity:=0.5 \
+  -p y_sensitivity:=0.5
+```
+
+## Workspace Bounds
+- **X:** 0.6 to 0.77 meters
+- **Y:** -1.5 to -1.2 meters  
+- **Z:** Fixed at `default_z_position`
 
 ## Starting the Inverse Kinematics Pipeline
 
