@@ -14,15 +14,21 @@ High-level system control is implemented on a Raspberry Pi running the Robot Ope
 - ROS2 - Jazzy 
 - Moveit2 - Harmonic
 
-## Physical Build
+## Physical Build and Demonstration
 
 Demo Video using breadboard based protoype of wearable controller.
 
 https://github.com/user-attachments/assets/144eaac5-5938-4217-9122-2242566a99c5
 
 
+Rough prototype of wearable controller
 
-https://github.com/user-attachments/assets/ec7e50fa-2d13-46d9-afe8-c7680861c63d
+
+https://github.com/user-attachments/assets/a6dace8c-65ac-41af-8a9c-40d3fd4ca57d
+
+![IMG_1939](https://github.com/user-attachments/assets/fcc12da2-aa8b-4a2a-a6ee-2820b6211cab)
+
+![IMG_1940](https://github.com/user-attachments/assets/e8a81c16-5bbc-4d5e-98a2-1cae8d4265bf)
 
 ## Visualization and motion planning with rviz2
 
